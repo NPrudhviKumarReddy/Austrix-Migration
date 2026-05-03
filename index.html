@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -37,18 +38,53 @@
       background: var(--light-bg);
       color: var(--text-dark);
       overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
+      position: relative;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    img,
+    svg,
+    video {
+      max-width: 100%;
+      height: auto;
+    }
+
+    a,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      overflow-wrap: anywhere;
     }
 
     .navbar {
       background: rgba(6, 28, 46, 0.94);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      left: 0;
+      right: 0;
+      width: 100%;
+      max-width: 100vw;
     }
 
     .navbar-brand {
       font-weight: 800;
       color: var(--white) !important;
       letter-spacing: 0.5px;
+      white-space: normal;
+      max-width: 70vw;
+      line-height: 1.15;
     }
 
     .navbar-brand span,
@@ -102,9 +138,20 @@
       background:
         radial-gradient(circle at top right, rgba(184, 148, 63, 0.34), transparent 30%),
         linear-gradient(135deg, rgba(6, 28, 46, 0.96), rgba(11, 45, 69, 0.94)),
-        url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80") center/cover;
+        url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
       color: var(--white);
-      overflow: hidden;
+      overflow: clip;
+      padding-top: 88px;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .hero>.container {
+      width: min(100% - 32px, 1320px);
+      max-width: 1320px;
+      margin-inline: auto;
+      padding-left: 0;
+      padding-right: 0;
     }
 
     .hero::after {
@@ -136,6 +183,11 @@
       font-weight: 900;
       line-height: 1.02;
       margin-bottom: 20px;
+      max-width: 100%;
+      white-space: normal;
+      word-break: normal;
+      overflow-wrap: normal;
+      text-wrap: balance;
     }
 
     .hero h1 span {
@@ -288,6 +340,7 @@
         opacity: 0;
         transform: translateY(16px) scale(0.99);
       }
+
       to {
         opacity: 1;
         transform: translateY(0) scale(1);
@@ -426,7 +479,11 @@
       transition: 0.3s ease;
     }
 
-    $1
+    .floating-whatsapp:hover {
+      transform: translateY(-5px) scale(1.04);
+      color: #fff;
+    }
+
 
     .detail-section {
       background: #fff;
@@ -471,7 +528,6 @@
       border: 1px solid rgba(184, 148, 63, 0.25);
     }
 
-    $1
 
     .premium-strip {
       position: relative;
@@ -491,14 +547,22 @@
       content: "";
       position: absolute;
       inset: -2px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.16), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.16), transparent);
       transform: translateX(-100%);
       animation: shineMove 6s infinite;
     }
 
     @keyframes shineMove {
-      0%, 45% { transform: translateX(-100%); }
-      75%, 100% { transform: translateX(100%); }
+
+      0%,
+      45% {
+        transform: translateX(-100%);
+      }
+
+      75%,
+      100% {
+        transform: translateX(100%);
+      }
     }
 
     .trust-metric {
@@ -627,7 +691,453 @@
       animation: panelEnter 0.35s ease both;
     }
 
+    .journey-progress {
+      position: sticky;
+      top: 72px;
+      z-index: 900;
+      background: rgba(255, 255, 255, 0.86);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 0;
+    }
+
+    .journey-steps {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+
+    .journey-steps a {
+      flex: 0 0 auto;
+      text-decoration: none;
+      color: var(--navy);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 0.86rem;
+      font-weight: 800;
+      box-shadow: 0 8px 22px rgba(9, 30, 49, 0.06);
+    }
+
+    .journey-steps a:hover {
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .tool-card {
+      border-radius: 30px;
+      background: #fff;
+      border: 1px solid var(--border);
+      box-shadow: 0 28px 80px rgba(9, 30, 49, 0.08);
+      padding: 28px;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tool-card::after {
+      content: "";
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      right: -90px;
+      top: -90px;
+      border-radius: 50%;
+      border: 30px solid rgba(184, 148, 63, 0.08);
+      pointer-events: none;
+    }
+
+    .wizard-option {
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 18px;
+      padding: 16px;
+      cursor: pointer;
+      height: 100%;
+      transition: 0.25s ease;
+    }
+
+    .wizard-option:hover,
+    .wizard-option.active {
+      border-color: var(--gold);
+      background: #fbf7ee;
+      transform: translateY(-4px);
+      box-shadow: 0 14px 34px rgba(184, 148, 63, 0.14);
+    }
+
+    .wizard-option i {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: var(--soft-gold);
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .result-panel {
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--deep-navy), var(--navy));
+      color: #fff;
+      padding: 24px;
+      margin-top: 22px;
+      display: none;
+    }
+
+    .result-panel.show {
+      display: block;
+      animation: panelEnter 0.4s ease both;
+    }
+
+    .score-ring {
+      width: 132px;
+      height: 132px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 16px;
+      background: conic-gradient(var(--gold) 0deg, var(--gold) 0deg, rgba(255, 255, 255, 0.16) 0deg);
+      position: relative;
+    }
+
+    .score-ring::after {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border-radius: 50%;
+      background: var(--navy);
+    }
+
+    .score-ring span {
+      position: relative;
+      z-index: 2;
+      font-size: 2rem;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .insight-table {
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #fff;
+    }
+
+    .insight-row {
+      display: grid;
+      grid-template-columns: 1.4fr .8fr 1fr 1fr 1fr;
+      gap: 12px;
+      padding: 15px 18px;
+      border-bottom: 1px solid var(--border);
+      align-items: center;
+    }
+
+    .insight-row:last-child {
+      border-bottom: none;
+    }
+
+    $1 .state-tags {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+
+    .state-tag {
+      display: inline-flex;
+      padding: 4px 7px;
+      border-radius: 999px;
+      background: #eef2f6;
+      color: var(--navy);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .chance-badge {
+      display: inline-flex;
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: var(--soft-gold);
+      color: var(--navy);
+      font-size: 0.78rem;
+      font-weight: 800;
+      width: fit-content;
+    }
+
+    .sticky-mobile-cta {
+      display: none;
+      position: fixed;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      z-index: 998;
+      background: var(--deep-navy);
+      color: #fff;
+      border: 1px solid rgba(184, 148, 63, 0.35);
+      border-radius: 999px;
+      padding: 10px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, .25);
+    }
+
+    .sticky-mobile-cta a {
+      color: var(--deep-navy);
+      background: var(--gold);
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-weight: 900;
+      display: block;
+      text-align: center;
+    }
+
+    .dashboard-shell {
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at top right, rgba(184, 148, 63, 0.12), transparent 30%),
+        linear-gradient(135deg, #ffffff, #f8fafc);
+      border: 1px solid var(--border);
+      box-shadow: 0 30px 90px rgba(9, 30, 49, 0.09);
+      padding: 28px;
+      overflow: hidden;
+    }
+
+    .dashboard-header {
+      border-radius: 28px;
+      padding: 26px;
+      background: linear-gradient(135deg, var(--deep-navy), var(--navy));
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dashboard-header::after {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      right: -90px;
+      top: -110px;
+      border-radius: 50%;
+      border: 34px solid rgba(184, 148, 63, 0.16);
+    }
+
+    .dashboard-stat {
+      border-radius: 22px;
+      padding: 20px;
+      background: #fff;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 48px rgba(9, 30, 49, 0.06);
+      height: 100%;
+    }
+
+    .dashboard-stat h3 {
+      color: var(--navy);
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+
+    .comparison-card {
+      border-radius: 26px;
+      padding: 22px;
+      background: #fff;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 50px rgba(9, 30, 49, 0.06);
+      transition: 0.3s ease;
+      height: 100%;
+    }
+
+    .comparison-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(184, 148, 63, 0.5);
+      box-shadow: 0 26px 70px rgba(9, 30, 49, 0.11);
+    }
+
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1.1fr repeat(3, 1fr);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .compare-cell {
+      padding: 15px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      font-size: 0.92rem;
+    }
+
+    .compare-cell:nth-child(4n) {
+      border-right: none;
+    }
+
+    .compare-head {
+      background: var(--navy);
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .profile-meter {
+      height: 12px;
+      border-radius: 999px;
+      background: #e8edf2;
+      overflow: hidden;
+    }
+
+    .profile-meter span {
+      display: block;
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--gold), #e7c96b);
+      transition: 0.45s ease;
+    }
+
+    .action-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: #fbf7ee;
+      border: 1px solid rgba(184, 148, 63, 0.28);
+      color: var(--navy);
+      font-size: 0.84rem;
+      font-weight: 800;
+      margin: 4px;
+    }
+
+    @media (max-width: 767px) {
+      .dashboard-shell {
+        padding: 16px;
+        border-radius: 24px;
+      }
+
+      .dashboard-header {
+        padding: 22px;
+        border-radius: 22px;
+      }
+
+      .compare-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .compare-cell {
+        border-right: none !important;
+      }
+
+      .compare-cell.compare-head:not(:first-child) {
+        display: none;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .journey-progress {
+        top: 62px;
+      }
+
+      .insight-row {
+        grid-template-columns: 1fr;
+        gap: 5px;
+      }
+
+      .insight-row.header {
+        display: none;
+      }
+
+      .sticky-mobile-cta {
+        display: block;
+      }
+    }
+
+    @media (max-width: 1199px) {
+      .hero h1 {
+        font-size: clamp(2.4rem, 5vw, 4.4rem);
+      }
+
+      .panel-hero {
+        min-height: auto;
+      }
+
+      .premium-feature {
+        min-height: 300px;
+      }
+    }
+
     @media (max-width: 991px) {
+      body {
+        padding-top: 0;
+      }
+
+      [data-aos] {
+        transform: none !important;
+        opacity: 1 !important;
+      }
+
+      .container,
+      .container-fluid {
+        max-width: 100% !important;
+      }
+
+      .navbar-collapse {
+        margin-top: 14px;
+        padding: 16px;
+        border-radius: 18px;
+        background: rgba(6, 28, 46, 0.98);
+        max-height: calc(100vh - 90px);
+        overflow-y: auto;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 118px 0 70px;
+        text-align: center;
+        background-position: center top;
+      }
+
+      .hero>.container {
+        width: min(100% - 28px, 720px);
+        max-width: 720px;
+        overflow: hidden;
+      }
+
+      .hero .row {
+        --bs-gutter-x: 0;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+      }
+
+      .hero .row>* {
+        padding-left: 0;
+        padding-right: 0;
+        max-width: 100%;
+        min-width: 0;
+      }
+
+      .hero::after {
+        opacity: 0.28;
+        right: -220px;
+        bottom: -180px;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero .d-flex {
+        justify-content: center;
+      }
+
+      .floating-card {
+        max-width: 620px;
+        margin: 0 auto;
+      }
+
       .tabs-sidebar {
         position: relative;
         top: 0;
@@ -635,34 +1145,337 @@
         gap: 10px;
         overflow-x: auto;
         max-height: none;
-        padding-bottom: 10px;
+        padding: 4px 4px 14px;
+        scroll-snap-type: x mandatory;
       }
 
       .service-tab {
-        min-width: 230px;
+        min-width: 245px;
         margin-bottom: 0;
+        scroll-snap-align: start;
+        flex-shrink: 0;
       }
 
-      .hero {
-        min-height: auto;
-        padding: 110px 0 70px;
+      .service-tab:hover {
+        transform: translateY(-3px);
+      }
+
+      .premium-feature {
+        min-height: 260px;
+      }
+
+      .cta-card,
+      .panel-hero,
+      .pathway-card,
+      .decision-map {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .container {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .services-shell {
+        padding: 16px;
+        border-radius: 24px;
+      }
+
+      .service-tab {
+        min-width: 215px;
+        padding: 12px;
+        font-size: 0.92rem;
+      }
+
+      .service-tab i {
+        width: 34px;
+        height: 34px;
+      }
+
+      .panel-hero h2 {
+        font-size: 2rem;
+      }
+
+      .info-card,
+      .detail-section,
+      .premium-feature {
+        padding: 20px;
+        border-radius: 22px;
+      }
+
+      .feature-number {
+        font-size: 3rem;
+      }
+
+      .timeline {
+        padding-left: 24px;
+      }
+
+      .timeline-step {
+        padding: 14px 15px;
+      }
+
+      .premium-strip .trust-metric {
+        text-align: left;
+      }
+
+      .site-footer {
+        text-align: center;
+      }
+
+      .site-footer .d-flex {
+        text-align: center;
+        gap: 10px;
+      }
+
+      .site-footer .d-flex.justify-content-between {
+        justify-content: center !important;
+      }
+
+      .site-footer ul li {
+        margin-bottom: 7px;
       }
     }
 
     @media (max-width: 576px) {
+      .navbar {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+      .navbar .container {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .navbar-brand {
+        font-size: 0.92rem;
+        max-width: calc(100vw - 105px);
+        white-space: normal;
+        line-height: 1.15;
+        overflow: hidden;
+      }
+
+      .hero {
+        padding: 102px 0 55px;
+        overflow: hidden;
+      }
+
+      .hero::after {
+        display: none;
+      }
+
+      .floating-card {
+        width: 100%;
+        max-width: 100%;
+        padding: 18px;
+        border-radius: 22px;
+      }
+
+      .floating-card .row {
+        --bs-gutter-x: 0.75rem;
+      }
+
+      .hero-badge,
+      .visa-pill {
+        font-size: 0.78rem;
+        padding: 8px 12px;
+      }
+
+      .hero h1 {
+        font-size: clamp(1.75rem, 8.4vw, 2.35rem);
+        line-height: 1.15;
+        letter-spacing: -0.5px;
+      }
+
+      .hero p {
+        font-size: 0.98rem;
+      }
+
+      .hero .btn-gold,
+      .hero .btn-outline-light,
+      .cta-card .btn-gold,
+      .cta-card .btn-outline-light,
+      form .btn-gold,
+      form .btn-navy {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+
+      .hero .d-flex,
+      .cta-card .d-flex {
+        width: 100%;
+      }
+
+      .stat-box h3 {
+        font-size: 1.5rem;
+      }
+
       .services-shell {
-        padding: 14px;
-        border-radius: 24px;
+        padding: 12px;
+        border-radius: 22px;
+      }
+
+      .search-wrap {
+        margin-bottom: 12px;
+      }
+
+      .tabs-sidebar {
+        gap: 8px;
+        padding-bottom: 12px;
+      }
+
+      .service-tab {
+        min-width: 185px;
+        font-size: 0.82rem;
+        gap: 8px;
+      }
+
+      .service-tab i {
+        width: 31px;
+        height: 31px;
+        border-radius: 11px;
       }
 
       .panel-hero,
-      .cta-card {
-        padding: 24px;
-        border-radius: 22px;
+      .cta-card,
+      .pathway-card,
+      .decision-map {
+        padding: 20px;
+        border-radius: 20px;
+      }
+
+      .panel-hero h2 {
+        font-size: 1.65rem;
+      }
+
+      .occupation-chip {
+        width: 100%;
+        justify-content: flex-start;
+        margin: 4px 0;
+      }
+
+      .floating-whatsapp {
+        width: 52px;
+        height: 52px;
+        right: 16px;
+        bottom: 16px;
+        font-size: 1.45rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .container {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .navbar-brand {
+        max-width: 200px;
+        font-size: 0.82rem;
+      }
+
+      .hero {
+        padding-top: 98px;
+      }
+
+      .hero-badge {
+        max-width: 100%;
+        white-space: normal;
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .service-tab {
+        min-width: 165px;
+        padding: 10px;
+      }
+
+      .panel-hero h2 {
+        font-size: 1.45rem;
+      }
+
+      .info-card,
+      .detail-section,
+      .premium-feature {
+        padding: 18px;
+      }
+    }
+
+    @media (min-width: 1400px) {
+      .container {
+        max-width: 1320px;
+      }
+
+      .hero {
+        min-height: 78vh;
+      }
+    }
+
+    /* Footer responsive polish */
+    .site-footer {
+      position: relative;
+      overflow: clip;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .site-footer>.container {
+      width: min(100% - 32px, 1320px);
+      max-width: 1320px;
+      margin-inline: auto;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .site-footer::before {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      right: -120px;
+      top: -120px;
+      border-radius: 50%;
+      border: 28px solid rgba(184, 148, 63, 0.12);
+      pointer-events: none;
+    }
+
+    .site-footer a,
+    .site-footer p,
+    .site-footer li {
+      word-break: break-word;
+    }
+
+    @media (max-width: 575px) {
+      .site-footer {
+        padding-bottom: 86px !important;
+      }
+
+      .site-footer>.container {
+        width: min(100% - 28px, 100%);
+      }
+
+      .site-footer .row>div {
+        text-align: center;
+      }
+
+      .site-footer .d-flex.gap-3 {
+        justify-content: center;
       }
     }
   </style>
 </head>
+
 <body>
 
   <!-- Navbar -->
@@ -691,7 +1504,8 @@
         <div class="col-lg-7" data-aos="fade-right">
           <div class="hero-badge"><i class="fa-solid fa-passport"></i> Your Visa, Our Commitment</div>
           <h1>Your Australian Dream, <span>Our Expertise</span></h1>
-          <p>Premium migration and education consulting services for students, skilled professionals, families, employers, and Australian citizenship applicants.</p>
+          <p>Premium migration and education consulting services for students, skilled professionals, families,
+            employers, and Australian citizenship applicants.</p>
           <div class="d-flex flex-wrap gap-3 mt-4">
             <a href="#services" class="btn btn-gold">Explore Services</a>
             <a href="#contact" class="btn btn-outline-light rounded-pill px-4 py-2 fw-bold">Contact Us</a>
@@ -701,10 +1515,30 @@
           <div class="floating-card">
             <h4 class="fw-bold mb-4">We Can Help You With</h4>
             <div class="row g-3">
-              <div class="col-6"><div class="stat-box"><h3 class="fw-black text-warning">500</h3><p class="mb-0 small">Student Visa</p></div></div>
-              <div class="col-6"><div class="stat-box"><h3 class="fw-black text-warning">485</h3><p class="mb-0 small">Graduate Visa</p></div></div>
-              <div class="col-6"><div class="stat-box"><h3 class="fw-black text-warning">189</h3><p class="mb-0 small">Skilled Visa</p></div></div>
-              <div class="col-6"><div class="stat-box"><h3 class="fw-black text-warning">482</h3><p class="mb-0 small">Employer Visa</p></div></div>
+              <div class="col-6">
+                <div class="stat-box">
+                  <h3 class="fw-black text-warning">500</h3>
+                  <p class="mb-0 small">Student Visa</p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="stat-box">
+                  <h3 class="fw-black text-warning">485</h3>
+                  <p class="mb-0 small">Graduate Visa</p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="stat-box">
+                  <h3 class="fw-black text-warning">189</h3>
+                  <p class="mb-0 small">Skilled Visa</p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="stat-box">
+                  <h3 class="fw-black text-warning">482</h3>
+                  <p class="mb-0 small">Employer Visa</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -712,12 +1546,26 @@
     </div>
   </header>
 
+  <!-- Sticky Journey Navigation -->
+  <div class="journey-progress">
+    <div class="container">
+      <div class="journey-steps">
+        <a href="#services"><i class="fa-solid fa-route me-1"></i> Start Pathway</a>
+        <a href="#points-tool"><i class="fa-solid fa-calculator me-1"></i> Points Tool</a> <a
+          href="#occupation-insights"><i class="fa-solid fa-chart-line me-1"></i> Occupations</a>
+        <a href="#migration-dashboard"><i class="fa-solid fa-gauge-high me-1"></i> Dashboard</a>
+        <a href="#appointment"><i class="fa-solid fa-calendar-check me-1"></i> Consultation</a>
+      </div>
+    </div>
+  </div>
+
   <!-- Services -->
   <section id="services" class="py-5">
     <div class="container py-4">
       <div class="text-center mb-5" data-aos="fade-up">
         <h2 class="section-title display-5">Advanced Visa Services</h2>
-        <p class="section-subtitle">Select a visa category to view eligibility, documents, process steps, and consultation options in a smooth interactive service dashboard.</p>
+        <p class="section-subtitle">Select a visa category to view eligibility, documents, process steps, and
+          consultation options in a smooth interactive service dashboard.</p>
       </div>
 
       <div class="services-shell" data-aos="fade-up">
@@ -770,12 +1618,218 @@
     </div>
   </section>
 
+  <!-- Smart Migration Tools -->
+  <section id="points-tool" class="py-5 bg-white">
+    <div class="container py-4">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="section-title display-6">Smart Points & Eligibility Explorer</h2>
+        <p class="section-subtitle">A beginner-friendly tool that helps clients understand how age, English,
+          qualification and experience may influence skilled migration options.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-7" data-aos="fade-right">
+          <div class="tool-card">
+            <h3 class="fw-black text-navy mb-3">Estimate Skilled Migration Points</h3>
+            <div class="row g-3">
+              <div class="col-md-6"><label class="fw-bold mb-2">Age</label><select id="ptAge" class="form-select">
+                  <option value="25">18-24</option>
+                  <option value="30">25-32</option>
+                  <option value="25">33-39</option>
+                  <option value="15">40-44</option>
+                  <option value="0">45+</option>
+                </select></div>
+              <div class="col-md-6"><label class="fw-bold mb-2">English Level</label><select id="ptEnglish"
+                  class="form-select">
+                  <option value="0">Competent</option>
+                  <option value="10">Proficient</option>
+                  <option value="20">Superior</option>
+                </select></div>
+              <div class="col-md-6"><label class="fw-bold mb-2">Qualification</label><select id="ptEdu"
+                  class="form-select">
+                  <option value="10">Diploma / Trade</option>
+                  <option value="15">Bachelor / Master</option>
+                  <option value="20">PhD</option>
+                </select></div>
+              <div class="col-md-6"><label class="fw-bold mb-2">Skilled Experience</label><select id="ptExp"
+                  class="form-select">
+                  <option value="0">Less than 3 years</option>
+                  <option value="5">3-4 years</option>
+                  <option value="10">5-7 years</option>
+                  <option value="15">8+ years</option>
+                </select></div>
+              <div class="col-md-6"><label class="fw-bold mb-2">Australian Study</label><select id="ptAus"
+                  class="form-select">
+                  <option value="0">No</option>
+                  <option value="5">Yes</option>
+                </select></div>
+              <div class="col-md-6"><label class="fw-bold mb-2">Partner / Single Points</label><select id="ptPartner"
+                  class="form-select">
+                  <option value="0">Not claiming</option>
+                  <option value="10">Single / Eligible partner</option>
+                  <option value="5">Partner competent English</option>
+                </select></div>
+              <div class="col-12"><button class="btn btn-navy" onclick="calculatePoints()">Calculate Indicative
+                  Points</button></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5" data-aos="fade-left">
+          <div class="tool-card text-center">
+            <h3 class="fw-black text-navy mb-3">Indicative Result</h3>
+            <div id="scoreRing" class="score-ring"><span id="scoreValue">0</span></div>
+            <h5 id="scoreTitle" class="fw-black text-navy">Complete the calculator</h5>
+            <p id="scoreText" class="text-muted mb-3">This tool is general information only. Final eligibility depends
+              on occupation, skills assessment, English evidence, invitation, nomination and visa rules.</p>
+            <a href="#appointment" class="btn btn-gold">Discuss My Score</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="occupation-insights" class="py-5">
+    <div class="container py-4">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="section-title display-6">Occupation & Pathway Insights</h2>
+        <p class="section-subtitle">This sample dashboard shows how occupations can be presented with indicative pathway
+          direction. Live invitation data should be verified regularly from official and state sources.</p>
+      </div>
+      <div class="tool-card" data-aos="fade-up">
+        <div class="row g-3 align-items-end mb-4">
+          <div class="col-lg-6">
+            <label class="fw-bold mb-2">Search occupation</label>
+            <input id="occupationSearch" class="form-control"
+              placeholder="Search: Software Engineer, Nurse, Chef, Electrician...">
+          </div>
+
+          <div class="col-lg-2">
+            <label class="fw-bold mb-2">Pathway</label>
+            <select id="pathwayFilter" class="form-select">
+              <option value="all">All pathways</option>
+              <option value="189">189</option>
+              <option value="190">190</option>
+              <option value="491">491</option>
+              <option value="482">482/186</option>
+            </select>
+          </div>
+
+          <div class="col-lg-2">
+            <label class="fw-bold mb-2">State</label>
+            <select id="stateFilter" class="form-select">
+              <option value="all">All states</option>
+              <option value="VIC">VIC</option>
+              <option value="NSW">NSW</option>
+              <option value="QLD">QLD</option>
+              <option value="SA">SA</option>
+              <option value="WA">WA</option>
+              <option value="TAS">TAS</option>
+              <option value="ACT">ACT</option>
+              <option value="NT">NT</option>
+            </select>
+          </div>
+
+          <div class="col-lg-2">
+            <label class="fw-bold mb-2">
+              Points: <span id="pointsValue">65</span>
+            </label>
+            <input id="pointsFilter" type="range" class="form-range" min="65" max="100" step="5" value="65">
+          </div>
+        </div>
+        <div class="insight-table" id="occupationTable"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visa Comparison + Client Dashboard -->
+  <section id="migration-dashboard" class="py-5 bg-white">
+    <div class="container py-4">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="section-title display-6">Personal Migration Dashboard</h2>
+        <p class="section-subtitle">A premium client-style dashboard that compares visa pathways, highlights possible
+          next steps, and helps visitors understand where they may fit.</p>
+      </div>
+
+      <div class="dashboard-shell" data-aos="fade-up">
+        <div class="dashboard-header mb-4">
+          <div class="row align-items-center g-4 position-relative">
+            <div class="col-lg-8">
+              <span class="visa-pill"><i class="fa-solid fa-gauge-high"></i> Smart Client Dashboard</span>
+              <h3 class="fw-black mb-2">Compare pathways before booking a consultation</h3>
+              <p class="text-white-50 mb-0">Choose your preferred pathway and profile level. The dashboard will update
+                the suggested direction, risk level and next steps.</p>
+            </div>
+            <div class="col-lg-4">
+              <select id="dashboardGoal" class="form-select mb-3">
+                <option value="study">Study pathway</option>
+                <option value="skilled">Skilled PR pathway</option>
+                <option value="employer">Employer sponsored pathway</option>
+                <option value="family">Partner / family pathway</option>
+              </select>
+              <select id="dashboardLevel" class="form-select">
+                <option value="early">I am just starting</option>
+                <option value="ready">I have documents / experience</option>
+                <option value="strong">I may be ready to apply</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4 mb-4">
+          <div class="col-md-4">
+            <div class="dashboard-stat">
+              <small class="text-muted fw-bold">Recommended Direction</small>
+              <h3 id="dashPathway">Student → 485 → PR</h3>
+              <p id="dashPathwayText" class="text-muted mb-0">Suitable for clients planning to study first and build
+                future migration options.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="dashboard-stat">
+              <small class="text-muted fw-bold">Readiness Level</small>
+              <h3 id="dashReadiness">35%</h3>
+              <div class="profile-meter mb-2"><span id="dashMeter"></span></div>
+              <p id="dashReadinessText" class="text-muted mb-0">Early planning stage. Focus on eligibility and document
+                preparation.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="dashboard-stat">
+              <small class="text-muted fw-bold">Consultation Focus</small>
+              <h3 id="dashFocus">Course + Visa Strategy</h3>
+              <p id="dashFocusText" class="text-muted mb-0">Review course choice, financial evidence, GS requirement and
+                future PR direction.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4 mb-4">
+          <div class="col-lg-7">
+            <h4 class="fw-black text-navy mb-3">Visa Pathway Comparison</h4>
+            <div class="compare-grid" id="compareGrid"></div>
+          </div>
+          <div class="col-lg-5">
+            <h4 class="fw-black text-navy mb-3">Suggested Next Actions</h4>
+            <div class="comparison-card">
+              <div id="dashActions"></div>
+              <hr>
+              <p class="text-muted small mb-3">This dashboard provides general information only. Final eligibility
+                depends on personal circumstances, current visa law, occupation lists, evidence and professional
+                assessment.</p>
+              <a href="#appointment" class="btn btn-navy w-100">Get Personalised Advice</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Appointment + Contact Forms -->
   <section id="appointment" class="py-5 bg-white">
     <div class="container py-4">
       <div class="text-center mb-5" data-aos="fade-up">
         <h2 class="section-title display-6">Book Appointment or Send Enquiry</h2>
-        <p class="section-subtitle">Clients can share their background, current visa position and migration goals so the team can prepare for a focused, professional consultation.</p>
+        <p class="section-subtitle">Clients can share their background, current visa position and migration goals so the
+          team can prepare for a focused, professional consultation.</p>
       </div>
       <div class="row g-4">
         <div class="col-lg-6" data-aos="fade-right">
@@ -784,12 +1838,31 @@
             <form id="appointmentForm">
               <div class="row g-3">
                 <div class="col-md-6"><input class="form-control" type="text" placeholder="Full Name" required></div>
-                <div class="col-md-6"><input class="form-control" type="tel" placeholder="Phone / WhatsApp" required></div>
-                <div class="col-md-6"><input class="form-control" type="email" placeholder="Email Address" required></div>
-                <div class="col-md-6"><select class="form-select" required><option value="">Preferred Service</option><option>Student Visa</option><option>Graduate Visa 485</option><option>Skilled Migration</option><option>Employer Sponsored</option><option>Partner Visa</option><option>Visitor Visa</option><option>Citizenship</option><option>Pathway Assessment / Not Sure</option></select></div>
+                <div class="col-md-6"><input class="form-control" type="tel" placeholder="Phone / WhatsApp" required>
+                </div>
+                <div class="col-md-6"><input class="form-control" type="email" placeholder="Email Address" required>
+                </div>
+                <div class="col-md-6"><select class="form-select" required>
+                    <option value="">Preferred Service</option>
+                    <option>Student Visa</option>
+                    <option>Graduate Visa 485</option>
+                    <option>Skilled Migration</option>
+                    <option>Employer Sponsored</option>
+                    <option>Partner Visa</option>
+                    <option>Visitor Visa</option>
+                    <option>Citizenship</option>
+                    <option>Pathway Assessment / Not Sure</option>
+                  </select></div>
                 <div class="col-md-6"><input class="form-control" type="date" required></div>
-                <div class="col-md-6"><select class="form-select" required><option value="">Preferred Time</option><option>Morning</option><option>Afternoon</option><option>Evening</option></select></div>
-                <div class="col-12"><textarea class="form-control" rows="4" placeholder="Share your current visa status, study/work background, occupation, and migration goal"></textarea></div>
+                <div class="col-md-6"><select class="form-select" required>
+                    <option value="">Preferred Time</option>
+                    <option>Morning</option>
+                    <option>Afternoon</option>
+                    <option>Evening</option>
+                  </select></div>
+                <div class="col-12"><textarea class="form-control" rows="4"
+                    placeholder="Share your current visa status, study/work background, occupation, and migration goal"></textarea>
+                </div>
                 <div class="col-12"><button class="btn btn-navy w-100" type="submit">Request Consultation</button></div>
               </div>
             </form>
@@ -801,18 +1874,27 @@
             <form id="contactForm">
               <div class="row g-3">
                 <div class="col-md-6"><input class="form-control" type="text" placeholder="Your Name" required></div>
-                <div class="col-md-6"><input class="form-control" type="email" placeholder="Email Address" required></div>
+                <div class="col-md-6"><input class="form-control" type="email" placeholder="Email Address" required>
+                </div>
                 <div class="col-md-6"><input class="form-control" type="tel" placeholder="Phone Number"></div>
-                <div class="col-md-6"><select class="form-select"><option>How did you hear about us?</option><option>Google</option><option>Facebook / Instagram</option><option>Friend Referral</option><option>Walk-in</option></select></div>
+                <div class="col-md-6"><select class="form-select">
+                    <option>How did you hear about us?</option>
+                    <option>Google</option>
+                    <option>Facebook / Instagram</option>
+                    <option>Friend Referral</option>
+                    <option>Walk-in</option>
+                  </select></div>
                 <div class="col-12"><input class="form-control" type="text" placeholder="Subject"></div>
-                <div class="col-12"><textarea class="form-control" rows="5" placeholder="Type your enquiry here"></textarea></div>
+                <div class="col-12"><textarea class="form-control" rows="5"
+                    placeholder="Type your enquiry here"></textarea></div>
                 <div class="col-12"><button class="btn btn-gold w-100" type="submit">Send Enquiry</button></div>
               </div>
             </form>
             <div class="mt-4 small text-muted">
               <p class="mb-2"><i class="fa-solid fa-phone text-warning me-2"></i> +61 422 444 325</p>
               <p class="mb-2"><i class="fa-solid fa-envelope text-warning me-2"></i> admin@austrixmigration.com</p>
-              <p class="mb-0"><i class="fa-solid fa-location-dot text-warning me-2"></i> 5A Gorge Rd, South Morang VIC 3752</p>
+              <p class="mb-0"><i class="fa-solid fa-location-dot text-warning me-2"></i> 5A Gorge Rd, South Morang VIC
+                3752</p>
             </div>
           </div>
         </div>
@@ -825,13 +1907,38 @@
     <div class="container py-4">
       <div class="text-center mb-5" data-aos="fade-up">
         <h2 class="section-title display-6">Our Consultation Process</h2>
-        <p class="section-subtitle">A simple step-by-step process designed to reduce confusion and improve application readiness.</p>
+        <p class="section-subtitle">A simple step-by-step process designed to reduce confusion and improve application
+          readiness.</p>
       </div>
       <div class="row g-4">
-        <div class="col-md-3" data-aos="zoom-in"><div class="info-card text-center"><div class="info-icon mx-auto"><i class="fa-solid fa-comments"></i></div><h5 class="fw-bold">Consult</h5><p class="text-muted small">Understand your visa goals and background.</p></div></div>
-        <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100"><div class="info-card text-center"><div class="info-icon mx-auto"><i class="fa-solid fa-list-check"></i></div><h5 class="fw-bold">Assess</h5><p class="text-muted small">Review eligibility and available pathways.</p></div></div>
-        <div class="col-md-3" data-aos="zoom-in" data-aos-delay="200"><div class="info-card text-center"><div class="info-icon mx-auto"><i class="fa-solid fa-folder-open"></i></div><h5 class="fw-bold">Prepare</h5><p class="text-muted small">Organise documents and application evidence.</p></div></div>
-        <div class="col-md-3" data-aos="zoom-in" data-aos-delay="300"><div class="info-card text-center"><div class="info-icon mx-auto"><i class="fa-solid fa-paper-plane"></i></div><h5 class="fw-bold">Lodge</h5><p class="text-muted small">Submit and support your application journey.</p></div></div>
+        <div class="col-md-3" data-aos="zoom-in">
+          <div class="info-card text-center">
+            <div class="info-icon mx-auto"><i class="fa-solid fa-comments"></i></div>
+            <h5 class="fw-bold">Consult</h5>
+            <p class="text-muted small">Understand your visa goals and background.</p>
+          </div>
+        </div>
+        <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
+          <div class="info-card text-center">
+            <div class="info-icon mx-auto"><i class="fa-solid fa-list-check"></i></div>
+            <h5 class="fw-bold">Assess</h5>
+            <p class="text-muted small">Review eligibility and available pathways.</p>
+          </div>
+        </div>
+        <div class="col-md-3" data-aos="zoom-in" data-aos-delay="200">
+          <div class="info-card text-center">
+            <div class="info-icon mx-auto"><i class="fa-solid fa-folder-open"></i></div>
+            <h5 class="fw-bold">Prepare</h5>
+            <p class="text-muted small">Organise documents and application evidence.</p>
+          </div>
+        </div>
+        <div class="col-md-3" data-aos="zoom-in" data-aos-delay="300">
+          <div class="info-card text-center">
+            <div class="info-icon mx-auto"><i class="fa-solid fa-paper-plane"></i></div>
+            <h5 class="fw-bold">Lodge</h5>
+            <p class="text-muted small">Submit and support your application journey.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -843,7 +1950,8 @@
         <div class="row align-items-center g-4">
           <div class="col-lg-8">
             <h2 class="fw-black mb-2">Ready to Start Your Visa Journey?</h2>
-            <p class="mb-0 text-white-50">Book a consultation with Austrix Migration & Education Consulting and get clear guidance for your next step.</p>
+            <p class="mb-0 text-white-50">Book a consultation with Austrix Migration & Education Consulting and get
+              clear guidance for your next step.</p>
           </div>
           <div class="col-lg-4 text-lg-end">
             <a href="#appointment" class="btn btn-gold">Book Consultation</a>
@@ -852,10 +1960,13 @@
       </div>
     </div>
   </section>
-
   <a class="floating-whatsapp" href="https://wa.me/61422444325" target="_blank" aria-label="Chat on WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
+
+  <div class="sticky-mobile-cta">
+    <a href="#appointment"><i class="fa-solid fa-calendar-check me-2"></i> Check My Eligibility</a>
+  </div>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -972,19 +2083,35 @@
         <div class="service-panel active">
           <div class="panel-hero mb-4">
             <span class="visa-pill"><i class="fa-solid fa-route"></i> Smart Pathway Guide</span>
-            <h2 class="fw-black display-6 mb-3">Find Your Possible Visa Pathway</h2>
-            <p class="mb-0 text-white-50 col-lg-10">A polished self-assessment experience that helps clients explore possible visa directions and prepare the right information before consultation.</p>
+            <h2 class="fw-black display-6 mb-3">Start Your Australian Migration Journey</h2>
+            <p class="mb-0 text-white-50 col-lg-10">A guided self-assessment experience for clients who are new to migration. Select your goal, background and situation to understand possible visa directions before consultation.</p>
           </div>
+
           <div class="pathway-card">
-            <div class="row g-3">
-              <div class="col-md-6"><label class="fw-bold mb-2">Current situation</label><select id="pfSituation" class="form-select"><option value="study">I want to study in Australia</option><option value="graduate">I recently completed Australian study</option><option value="skilled">I have skilled work experience</option><option value="joboffer">I have an Australian job offer</option><option value="partner">My partner is Australian/PR</option><option value="visit">I want to visit Australia</option><option value="parent">My child lives in Australia</option><option value="citizen">I am a PR and want citizenship</option><option value="refusal">My visa was refused/cancelled</option></select></div>
-              <div class="col-md-6"><label class="fw-bold mb-2">Highest education</label><select class="form-select"><option>High school</option><option>Diploma / Trade</option><option>Bachelor degree</option><option>Master degree</option><option>PhD</option></select></div>
-              <div class="col-md-6"><label class="fw-bold mb-2">Work experience</label><select class="form-select"><option>0-1 year</option><option>1-3 years</option><option>3-5 years</option><option>5+ years</option></select></div>
-              <div class="col-md-6"><label class="fw-bold mb-2">Occupation / field</label><input class="form-control" placeholder="Example: Software Engineer, Chef, Nurse"></div>
-              <div class="col-12"><button class="btn btn-navy" onclick="showPathwayResult()">Show Possible Pathway</button></div>
+            <h3 class="fw-black text-navy mb-2">Step 1: What is your main goal?</h3>
+            <p class="text-muted mb-4">Choose the option that best describes your situation.</p>
+            <div class="row g-3" id="wizardGoals">
+              <div class="col-md-4"><div class="wizard-option active" data-goal="study"><i class="fa-solid fa-graduation-cap"></i><h6 class="fw-bold">Study in Australia</h6><small class="text-muted">Course, student visa and future options</small></div></div>
+              <div class="col-md-4"><div class="wizard-option" data-goal="skilled"><i class="fa-solid fa-briefcase"></i><h6 class="fw-bold">Work / PR by Skills</h6><small class="text-muted">Occupation, points and invitations</small></div></div>
+              <div class="col-md-4"><div class="wizard-option" data-goal="sponsor"><i class="fa-solid fa-building-user"></i><h6 class="fw-bold">Employer Sponsorship</h6><small class="text-muted">Job offer and sponsored visas</small></div></div>
+              <div class="col-md-4"><div class="wizard-option" data-goal="family"><i class="fa-solid fa-heart"></i><h6 class="fw-bold">Join Family / Partner</h6><small class="text-muted">Partner, parent and family options</small></div></div>
+              <div class="col-md-4"><div class="wizard-option" data-goal="visit"><i class="fa-solid fa-plane-arrival"></i><h6 class="fw-bold">Visit Australia</h6><small class="text-muted">Tourism, family visit or business visit</small></div></div>
+              <div class="col-md-4"><div class="wizard-option" data-goal="problem"><i class="fa-solid fa-triangle-exclamation"></i><h6 class="fw-bold">Refusal / Complex Case</h6><small class="text-muted">Review, appeal and urgent guidance</small></div></div>
             </div>
-            <div id="pathwayResult" class="mini-result"></div>
+
+            <hr class="my-4">
+            <h3 class="fw-black text-navy mb-3">Step 2: Tell us your profile</h3>
+            <div class="row g-3">
+              <div class="col-md-6"><label class="fw-bold mb-2">Highest education</label><select id="wizEdu" class="form-select"><option>High school</option><option>Diploma / Trade</option><option>Bachelor degree</option><option>Master degree</option><option>PhD</option></select></div>
+              <div class="col-md-6"><label class="fw-bold mb-2">Work experience</label><select id="wizExp" class="form-select"><option>0-1 year</option><option>1-3 years</option><option>3-5 years</option><option>5+ years</option></select></div>
+              <div class="col-md-6"><label class="fw-bold mb-2">Occupation / field</label><input id="wizOcc" class="form-control" placeholder="Example: Software Engineer, Chef, Nurse"></div>
+              <div class="col-md-6"><label class="fw-bold mb-2">Current visa status</label><select id="wizVisa" class="form-select"><option>Outside Australia</option><option>Student visa</option><option>Graduate visa</option><option>Visitor visa</option><option>Work visa</option><option>Permanent resident</option><option>Not sure</option></select></div>
+              <div class="col-12"><button class="btn btn-navy" onclick="runPathwayWizard()">Generate My Pathway Guide</button></div>
+            </div>
+
+            <div id="wizardResult" class="result-panel"></div>
           </div>
+
           <div class="premium-strip mt-4">
             <div class="row g-3 position-relative">
               <div class="col-md-4"><div class="trust-metric"><h4 class="fw-black text-warning mb-1">Profile</h4><p class="mb-0 text-white-50 small">Education, occupation, visa history and family goals are reviewed together.</p></div></div>
@@ -992,56 +2119,15 @@
               <div class="col-md-4"><div class="trust-metric"><h4 class="fw-black text-warning mb-1">Action Plan</h4><p class="mb-0 text-white-50 small">Clients receive clear next steps for eligibility, evidence and consultation.</p></div></div>
             </div>
           </div>
-
-          <div class="row g-4 mt-1">
-            <div class="col-md-4">
-              <div class="premium-feature">
-                <span class="feature-number">01</span>
-                <div class="feature-icon-glow"><i class="fa-solid fa-compass"></i></div>
-                <h4 class="fw-black text-navy">Guided Pathway Assessment</h4>
-                <div class="gold-line"></div>
-                <p class="text-muted mb-0">A structured profile review designed to help clients understand which visa categories may align with their study, work, family or travel goals.</p>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="premium-feature">
-                <span class="feature-number">02</span>
-                <div class="feature-icon-glow"><i class="fa-solid fa-layer-group"></i></div>
-                <h4 class="fw-black text-navy">Comprehensive Application Support</h4>
-                <div class="gold-line"></div>
-                <p class="text-muted mb-0">Eligibility factors, supporting evidence, document preparation and application stages are presented in a clear professional format.</p>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="premium-feature">
-                <span class="feature-number">03</span>
-                <div class="feature-icon-glow"><i class="fa-solid fa-user-shield"></i></div>
-                <h4 class="fw-black text-navy">Personalised Consultation</h4>
-                <div class="gold-line"></div>
-                <p class="text-muted mb-0">Clients can request an appointment for tailored guidance based on their individual visa history, qualifications and migration objectives.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="decision-map mt-4">
-            <div class="row align-items-center g-4">
-              <div class="col-lg-5">
-                <span class="visa-pill" style="background: var(--soft-gold); color: var(--navy); border-color: rgba(184,148,63,.35);"><i class="fa-solid fa-diagram-project"></i> Decision Flow</span>
-                <h3 class="fw-black text-navy mt-3">From Enquiry to Clear Direction</h3>
-                <p class="text-muted mb-0">The interface can guide users through the same logical flow a consultant would use during an initial pathway conversation.</p>
-              </div>
-              <div class="col-lg-7">
-                <div class="d-grid gap-3">
-                  <div class="decision-node"><i class="fa-solid fa-user me-2 text-warning"></i> Client profile and current visa situation</div>
-                  <div class="decision-node"><i class="fa-solid fa-graduation-cap me-2 text-warning"></i> Education, English, occupation and experience review</div>
-                  <div class="decision-node"><i class="fa-solid fa-route me-2 text-warning"></i> Possible pathway identification and risk factors</div>
-                  <div class="decision-node"><i class="fa-solid fa-calendar-check me-2 text-warning"></i> Appointment request with prepared background details</div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       `;
+
+      document.querySelectorAll('.wizard-option').forEach(option => {
+        option.addEventListener('click', () => {
+          document.querySelectorAll('.wizard-option').forEach(x => x.classList.remove('active'));
+          option.classList.add('active');
+        });
+      });
     }
 
     function renderService(key) {
@@ -1112,24 +2198,285 @@
       `;
     }
 
-    window.showPathwayResult = function() {
-      const situation = document.getElementById("pfSituation").value;
-      const map = {
-        study: ["Student Visa 500", "Best starting point if your main goal is to study in Australia. You need course admission, CoE, funds, GS evidence and OSHC."],
-        graduate: ["Temporary Graduate Visa 485", "Possible if you recently completed eligible Australian study and meet English, AFP, insurance and stream requirements."],
-        skilled: ["Skilled Visa 189/190/491", "Possible if your occupation is on a skilled list, you can get a skills assessment, meet points/English and receive invitation or nomination."],
-        joboffer: ["Employer Sponsored 482/186/494", "Possible if an Australian employer can sponsor you in an eligible occupation and you meet skills, experience, English and health requirements."],
-        partner: ["Partner Visa", "Possible if you are in a genuine relationship with an eligible Australian citizen, PR or eligible New Zealand citizen."],
-        visit: ["Visitor Visa 600", "Possible for tourism, family visit or short business visit if you can show genuine temporary stay, funds and home ties."],
-        parent: ["Parent Visa", "Possible if your child is an eligible settled Australian citizen, PR or eligible New Zealand citizen and family criteria are met."],
-        citizen: ["Australian Citizenship", "Possible if you hold PR/eligible status, meet residence requirement, identity and good character requirements."],
-        refusal: ["AAT / Review Support", "Act urgently. Review deadlines can be strict. Bring your refusal letter for assessment immediately."]
+    window.runPathwayWizard = function () {
+      const goal = document.querySelector('.wizard-option.active')?.dataset.goal || 'study';
+      const occ = document.getElementById('wizOcc')?.value || 'your occupation';
+      const profiles = {
+        study: ['Student Pathway', ['Student Visa 500', 'Temporary Graduate Visa 485', 'Skilled or Employer pathway after study'], ['Choose a suitable course', 'Prepare financial and Genuine Student evidence', 'Plan long-term PR direction early']],
+        skilled: ['Skilled Migration Pathway', ['Skills Assessment', 'EOI', '189 / 190 / 491 visa options'], ['Confirm occupation list', 'Improve English and points', 'Check state nomination options']],
+        sponsor: ['Employer Sponsored Pathway', ['482 Skills in Demand', '186 Employer Nomination', '494 Regional Employer Sponsored'], ['Confirm genuine job offer', 'Check occupation and salary rules', 'Prepare employer and applicant evidence']],
+        family: ['Family / Partner Pathway', ['Partner visa', 'Parent visa', 'Other family options where eligible'], ['Collect relationship/family evidence', 'Check sponsor eligibility', 'Prepare strong supporting documents']],
+        visit: ['Visitor Pathway', ['Visitor Visa 600', 'Business visitor stream where relevant'], ['Show genuine temporary stay', 'Prepare funds and home ties', 'Avoid inconsistent purpose statements']],
+        problem: ['Review / Complex Case Pathway', ['AAT review if eligible', 'New visa strategy', 'Evidence and submission preparation'], ['Check deadline urgently', 'Analyse refusal reasons', 'Book consultation immediately']]
       };
-      const [title, text] = map[situation];
-      const result = document.getElementById("pathwayResult");
-      result.classList.add("show");
-      result.innerHTML = `<h5 class="fw-black text-navy mb-2">Possible Pathway: ${title}</h5><p class="mb-3 text-muted">${text}</p><a href="#appointment" class="btn btn-navy">Book Pathway Consultation</a>`;
+      const [title, pathways, next] = profiles[goal];
+      const result = document.getElementById('wizardResult');
+      result.classList.add('show');
+      result.innerHTML = `
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-7">
+            <span class="visa-pill"><i class="fa-solid fa-compass"></i> Recommended Direction</span>
+            <h3 class="fw-black mb-3">${title}</h3>
+            <p class="text-white-50">Based on the selected goal and occupation field: <strong>${occ}</strong>. This is an indicative guide only and must be confirmed through eligibility assessment.</p>
+            <h6 class="fw-bold text-warning">Possible pathways</h6>
+            <ul>${pathways.map(x => `<li>${x}</li>`).join('')}</ul>
+          </div>
+          <div class="col-lg-5">
+            <div class="trust-metric">
+              <h5 class="fw-black text-warning">Next Steps</h5>
+              <ol class="mb-3">${next.map(x => `<li>${x}</li>`).join('')}</ol>
+              <a href="#appointment" class="btn btn-gold w-100">Book Pathway Consultation</a>
+            </div>
+          </div>
+        </div>`;
     }
+
+    window.calculatePoints = function () {
+      const ids = ['ptAge', 'ptEnglish', 'ptEdu', 'ptExp', 'ptAus', 'ptPartner'];
+      const total = ids.reduce((sum, id) => sum + Number(document.getElementById(id).value || 0), 0);
+      document.getElementById('scoreValue').textContent = total;
+      document.getElementById('scoreRing').style.background = `conic-gradient(var(--gold) ${Math.min(total, 100) * 3.6}deg, rgba(255,255,255,0.16) 0deg)`;
+      let title = 'Needs Strategy Review';
+      let text = 'You may need to improve points, English, experience, nomination strategy or explore alternate pathways.';
+      if (total >= 85) { title = 'Strong Indicative Score'; text = 'You may be competitive for some skilled pathways, depending on occupation, invitation rounds and state nomination.'; }
+      else if (total >= 65) { title = 'Potentially Eligible Range'; text = 'You may meet the general points threshold, but competitiveness depends heavily on occupation and pathway.'; }
+      document.getElementById('scoreTitle').textContent = title;
+      document.getElementById('scoreText').textContent = text;
+    }
+
+    const occupationData = [
+      ['Software Engineer', 'ICT', '189: 90–95+', '190: 85–95', 'High competition', '482', ['VIC', 'NSW', 'SA', 'WA', 'ACT']],
+      ['Developer Programmer', 'ICT', '189: 90–95+', '190: 85–95', 'High competition', '189', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'ACT']],
+      ['ICT Business Analyst', 'ICT', '189: 90–95+', '190: 85–95', 'High competition', '189', ['VIC', 'NSW', 'QLD', 'SA', 'ACT']],
+      ['Cyber Security Specialist', 'ICT', '189: varies', '190/491: 80–95', 'Growing demand', '190', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'ACT']],
+      ['Data Analyst / Analyst Programmer', 'ICT', '189: 85–95+', '190: 80–95', 'High competition', '190', ['VIC', 'NSW', 'SA', 'WA', 'ACT']],
+      ['Civil Engineer', 'Engineering', '189: 75–90+', '190: 75–90', 'Good demand', '491', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS', 'NT']],
+      ['Mechanical Engineer', 'Engineering', '189: 75–90+', '190/491: 75–90', 'Good demand', '190', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS']],
+      ['Electrical Engineer', 'Engineering', '189: 75–90+', '190/491: 75–90', 'Good demand', '190', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'ACT']],
+      ['Electronics Engineer', 'Engineering', '189: 80–95+', '190/491: 75–90', 'Moderate demand', '190', ['VIC', 'NSW', 'SA', 'WA', 'ACT']],
+      ['Mining Engineer', 'Engineering', '189: varies', '190/491: 70–85', 'WA/QLD advantage', '491', ['WA', 'QLD', 'SA', 'NT']],
+      ['Environmental Engineer', 'Engineering', '189: varies', '190/491: 75–90', 'Regional demand', '491', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS']],
+      ['Civil Engineering Draftsperson', 'Engineering', '189: varies', '190/491: 65–80', 'Regional demand', '491', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS']],
+      ['Registered Nurse', 'Health', '189: 65–80+', '190: 65–80', 'Strong demand', '190', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS', 'ACT', 'NT']],
+      ['Aged Care Registered Nurse', 'Health', '189: 65–80+', '190/491: 65–80', 'Strong demand', '190', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS', 'NT']],
+      ['Physiotherapist', 'Health', '189: 75–90+', '190/491: 70–85', 'Good demand', '491', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS']],
+      ['Occupational Therapist', 'Health', '189: 70–85+', '190/491: 65–85', 'Strong demand', '190', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS', 'NT']],
+      ['Social Worker', 'Health', '189: 70–85+', '190/491: 65–85', 'Strong demand', '190', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS', 'ACT', 'NT']],
+      ['Early Childhood Teacher', 'Education', '189: 65–80+', '190: 65–80', 'Strong demand', '190', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS', 'ACT', 'NT']],
+      ['Secondary School Teacher', 'Education', '189: 70–85+', '190/491: 65–85', 'Good demand', '190', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS', 'NT']],
+      ['Construction Project Manager', 'Construction', '189: 75–90+', '190/491: 70–90', 'Good demand', '190', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS']],
+      ['Quantity Surveyor', 'Construction', '189: 75–90+', '190/491: 70–85', 'Good demand', '190', ['VIC', 'NSW', 'QLD', 'SA', 'WA']],
+      ['Architect', 'Construction', '189: varies', '190/491: 75–90', 'Moderate demand', '190', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'ACT']],
+      ['Electrician', 'Trade', '189: 65–75+', '190/491: 65–80', 'Trade demand', '491', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS', 'NT']],
+      ['Carpenter', 'Trade', '189: 65–75+', '190/491: 65–80', 'Trade demand', '491', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS', 'NT']],
+      ['Plumber', 'Trade', '189: 65–75+', '190/491: 65–80', 'Trade demand', '491', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS', 'NT']],
+      ['Bricklayer', 'Trade', '189: 65–75+', '190/491: 65–80', 'Trade demand', '491', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS', 'NT']],
+      ['Wall and Floor Tiler', 'Trade', '189: varies', '190/491: 65–80', 'Regional demand', '491', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS']],
+      ['Painter and Decorator', 'Trade', '189: varies', '190/491: 65–80', 'Regional demand', '491', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS']],
+      ['Cabinetmaker', 'Trade', '189: varies', '190/491: 65–80', 'Regional demand', '491', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS']],
+      ['Metal Fabricator', 'Trade', '189: varies', '190/491: 65–80', 'Trade demand', '491', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'NT']],
+      ['Welder', 'Trade', '189: varies', '190/491: 65–80', 'Trade demand', '491', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'NT']],
+      ['Fitter', 'Trade', '189: varies', '190/491: 65–80', 'Trade demand', '491', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'NT']],
+      ['Motor Mechanic', 'Trade', '189: 65–75+', '190/491: 65–80', 'Trade demand', '482', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS', 'NT']],
+      ['Diesel Motor Mechanic', 'Trade', '189: varies', '190/491: 65–80', 'Regional demand', '491', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'NT']],
+      ['Airconditioning and Refrigeration Mechanic', 'Trade', '189: varies', '190/491: 65–80', 'Trade demand', '491', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS']],
+      ['Chef', 'Hospitality', '189: varies', '190/491: 65–80', 'Regional advantage', '482', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS', 'NT']],
+      ['Cook', 'Hospitality', '189: varies', '190/491: 65–80', 'Regional advantage', '482', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS', 'NT']],
+      ['Restaurant Manager', 'Hospitality', '189: varies', '190/491: 70–85', 'Employer pathway', '482', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'TAS', 'NT']],
+      ['Accountant', 'Business', '189: 95+', '190: 90–100+', 'Very high competition', '190', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'ACT']],
+      ['External Auditor', 'Business', '189: 85–95+', '190/491: 80–95', 'Competitive', '190', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'ACT']],
+      ['Marketing Specialist', 'Business', '189: varies', '190/491: 80–95', 'High competition', '482', ['VIC', 'NSW', 'QLD', 'SA', 'WA', 'ACT']]
+    ];
+
+
+    function extractPointRange(text) {
+      const matches = text.match(/\d+/g);
+      if (!matches) return [0, 0];
+
+      const numbers = matches
+        .map(Number)
+        .filter(n => n >= 60 && n <= 100);
+
+      if (numbers.length === 0) return [0, 0];
+      if (numbers.length === 1) return [numbers[0], numbers[0]];
+
+      return [Math.min(...numbers), Math.max(...numbers)];
+    }
+
+    function renderOccupationTable() {
+      const table = document.getElementById("occupationTable");
+      if (!table) return;
+
+      const q = document.getElementById("occupationSearch")?.value.toLowerCase() || "";
+      const pathway = document.getElementById("pathwayFilter")?.value || "all";
+      const state = document.getElementById("stateFilter")?.value || "all";
+      const selectedPoints = Number(document.getElementById("pointsFilter")?.value || 65);
+
+      const rows = occupationData.filter(r => {
+        const range189 = extractPointRange(r[2]);
+        const rangeState = extractPointRange(r[3]);
+
+        const inRange = (range) =>
+          selectedPoints >= range[0] && selectedPoints <= range[1];
+
+        const pointsMatch = inRange(range189) || inRange(rangeState);
+
+        const textMatch = `${r[0]} ${r[1]} ${r[2]} ${r[3]} ${r[4]}`
+          .toLowerCase()
+          .includes(q);
+
+        const pathwayMatch =
+          pathway === "all" ||
+          r[5] === pathway ||
+          r[2].includes(pathway) ||
+          r[3].includes(pathway);
+
+        const stateMatch =
+          state === "all" || r[6].includes(state);
+
+        return textMatch && pathwayMatch && stateMatch && pointsMatch;
+      });
+
+      table.innerHTML = `
+    <div class="insight-row header">
+      <div>Occupation</div>
+      <div>Field</div>
+      <div>189 Trend</div>
+      <div>State / Regional</div>
+      <div>States</div>
+    </div>
+
+    ${rows.map(r => `
+      <div class="insight-row">
+        <div>
+          <div class="fw-bold text-navy">${r[0]}</div>
+          <span class="chance-badge mt-2">${r[4]}</span>
+        </div>
+        <div>${r[1]}</div>
+        <div>${r[2]}</div>
+        <div>${r[3]}</div>
+        <div class="state-tags">
+          ${r[6].map(s => `<span class="state-tag">${s}</span>`).join("")}
+        </div>
+      </div>
+    `).join("")}
+
+    <div class="p-3 small text-muted">
+      Showing ${rows.length} occupation examples for ${selectedPoints} points. Data is indicative only; occupation lists, invitations and state criteria change frequently.
+    </div>
+  `;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderOccupationTable();
+
+      document.getElementById("occupationSearch")?.addEventListener("input", renderOccupationTable);
+      document.getElementById("pathwayFilter")?.addEventListener("change", renderOccupationTable);
+      document.getElementById("stateFilter")?.addEventListener("change", renderOccupationTable);
+
+      document.getElementById("pointsFilter")?.addEventListener("input", e => {
+        document.getElementById("pointsValue").textContent = e.target.value;
+        renderOccupationTable();
+      });
+    });
+
+    const dashboardData = {
+      study: {
+        pathway: 'Student → 485 → PR', focus: 'Course + Visa Strategy',
+        text: 'Suitable for clients planning to study first and build future migration options.',
+        focusText: 'Review course choice, financial evidence, GS requirement and future PR direction.',
+        actions: ['Choose suitable CRICOS course', 'Prepare financial evidence', 'Plan 485 and PR pathway early', 'Check future occupation relevance']
+      },
+      skilled: {
+        pathway: 'Skills Assessment → EOI → 189/190/491', focus: 'Occupation + Points Strategy',
+        text: 'Suitable for qualified professionals with skilled work experience and competitive points.',
+        focusText: 'Review occupation list, skills assessment authority, English target and state nomination options.',
+        actions: ['Confirm nominated occupation', 'Calculate accurate points', 'Prepare skills assessment', 'Compare state nomination options']
+      },
+      employer: {
+        pathway: 'Job Offer → 482/494 → 186 PR', focus: 'Employer + Nomination Strategy',
+        text: 'Suitable for clients with an Australian employer willing to sponsor them.',
+        focusText: 'Review employer eligibility, nominated role, salary, work experience and long-term PR options.',
+        actions: ['Confirm employer sponsorship eligibility', 'Check occupation and salary', 'Prepare employment evidence', 'Review PR transition options']
+      },
+      family: {
+        pathway: 'Relationship / Family Evidence → Visa', focus: 'Evidence + Sponsor Strategy',
+        text: 'Suitable for eligible partners, parents or family applicants with an Australian sponsor.',
+        focusText: 'Review sponsor eligibility, relationship/family evidence, health, character and application stages.',
+        actions: ['Confirm sponsor eligibility', 'Collect relationship/family evidence', 'Prepare statements and identity documents', 'Review onshore/offshore options']
+      }
+    };
+
+    const compareRows = [
+      ['Feature', '189 Skilled', '190 State', '491 Regional'],
+      ['PR direct?', 'Yes', 'Yes', 'No, pathway to PR'],
+      ['Needs state nomination?', 'No', 'Yes', 'Yes / family regional'],
+      ['Typical competition', 'High', 'Medium to High', 'Medium'],
+      ['Best for', 'Very strong points', 'State-demand occupations', 'Regional strategy'],
+      ['Key risk', 'High cut-off points', 'State criteria changes', 'Regional obligations']
+    ];
+
+    function renderDashboard() {
+      const goal = document.getElementById('dashboardGoal')?.value || 'study';
+      const level = document.getElementById('dashboardLevel')?.value || 'early';
+      const data = dashboardData[goal];
+      const levels = {
+        early: [35, 'Early planning stage. Focus on eligibility and document preparation.'],
+        ready: [65, 'Preparation stage. Documents and strategy should be reviewed before action.'],
+        strong: [85, 'Advanced stage. A professional review can confirm readiness and risks.']
+      };
+      const [score, readinessText] = levels[level];
+
+      const set = (id, text) => { const el = document.getElementById(id); if (el) el.textContent = text; };
+      set('dashPathway', data.pathway);
+      set('dashPathwayText', data.text);
+      set('dashFocus', data.focus);
+      set('dashFocusText', data.focusText);
+      set('dashReadiness', score + '%');
+      set('dashReadinessText', readinessText);
+      const meter = document.getElementById('dashMeter');
+      if (meter) meter.style.width = score + '%';
+      const actions = document.getElementById('dashActions');
+      if (actions) actions.innerHTML = data.actions.map(x => `<span class="action-chip"><i class="fa-solid fa-check"></i>${x}</span>`).join('');
+      const grid = document.getElementById('compareGrid');
+      if (grid) grid.innerHTML = compareRows.map((row, rowIndex) => row.map(cell => `<div class="compare-cell ${rowIndex === 0 ? 'compare-head' : ''}">${cell}</div>`).join('')).join('');
+    }
+
+    document.addEventListener('change', e => {
+      if (e.target.id === 'dashboardGoal' || e.target.id === 'dashboardLevel') renderDashboard();
+    });
+    setTimeout(renderDashboard, 120);
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderOccupationTable();
+
+      const occupationSearch = document.getElementById("occupationSearch");
+      const pathwayFilter = document.getElementById("pathwayFilter");
+      const stateFilter = document.getElementById("stateFilter");
+      const pointsFilter = document.getElementById("pointsFilter");
+      const pointsValue = document.getElementById("pointsValue");
+
+      if (occupationSearch) {
+        occupationSearch.addEventListener("input", renderOccupationTable);
+      }
+
+      if (pathwayFilter) {
+        pathwayFilter.addEventListener("change", renderOccupationTable);
+      }
+
+      if (stateFilter) {
+        stateFilter.addEventListener("change", renderOccupationTable);
+      }
+
+      if (pointsFilter) {
+        pointsFilter.addEventListener("input", () => {
+          if (pointsValue) {
+            pointsValue.textContent = `${pointsFilter.value}+`;
+          }
+          renderOccupationTable();
+        });
+      }
+    });
 
     serviceTabs.forEach(tab => {
       tab.addEventListener("click", () => {
@@ -1147,16 +2494,19 @@
       });
     });
 
-    renderService("student");
+    renderService("pathway");
+    renderOccupationTable();
+    renderDashboard();
   </script>
   <!-- Footer -->
-  <footer class="pt-5 pb-4" style="background: linear-gradient(135deg, #061c2e, #0b2d45); color: #fff;">
+  <footer class="site-footer pt-5 pb-4" style="background: linear-gradient(135deg, #061c2e, #0b2d45); color: #fff;">
     <div class="container">
       <div class="row g-4">
 
         <div class="col-lg-4">
           <h4 class="fw-bold">Austrix Migration</h4>
-          <p class="text-white-50">Your trusted migration and education consultancy in Australia. We guide students, skilled professionals, families, and employers through visa pathways.</p>
+          <p class="text-white-50">Your trusted migration and education consultancy in Australia. We guide students,
+            skilled professionals, families, and employers through visa pathways.</p>
         </div>
 
         <div class="col-lg-2 col-md-6">
@@ -1205,4 +2555,5 @@
   </footer>
 
 </body>
+
 </html>
